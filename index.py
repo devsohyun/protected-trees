@@ -6,7 +6,7 @@ from pythonosc import udp_client
 client = udp_client.SimpleUDPClient('127.0.0.1', 8080) # ip. port
 
 # Variables
-key = '777a716870617374363855535a6567'
+key = 'put your key'
 tree_number = '5'
 url = 'http://openAPI.seoul.go.kr:8088/' + key + '/xml/GeoInfoNurseTreeOldTreeWGS/1/5/' + tree_number
 isAllValue = False # set it True to log all values in variables
