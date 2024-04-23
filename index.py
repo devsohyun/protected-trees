@@ -109,7 +109,7 @@ if isAllValue is True:
         print(f"{key} = '{value}'")
 else:
     for key, value in variables.items():
-        if key == 'LNG':
+        if key == 'OBJECTID':
             # send osc
             client.send_message('/data', value)
             print(f"{key} = '{value}'")
