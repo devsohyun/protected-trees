@@ -6,8 +6,8 @@ from pythonosc import udp_client
 client = udp_client.SimpleUDPClient('127.0.0.1', 8080) # ip. port
 
 # Variables
-key = 'put your key'
-tree_number = '5'
+key = '777a716870617374363855535a6567'
+tree_number = '1'
 url = 'http://openAPI.seoul.go.kr:8088/' + key + '/xml/GeoInfoNurseTreeOldTreeWGS/1/5/' + tree_number
 isAllValue = False # set it True to log all values in variables
 
@@ -106,13 +106,10 @@ if isAllValue is True:
     for key, value in variables.items():
         # send osc
         client.send_message('/data', value)
-        print(f"{key} = '{value}'")
+    print("Osc sent")
 else:
     for key, value in variables.items():
-        if key == 'OBJECTID':
-            # send osc
-            client.send_message('/data', value)
-            print(f"{key} = '{value}'")
-
-for elem in selected_data:
-    print(elem)
+        if key in selected_data:
+            # send osc for selected data
+            client.send_message(f'/{key}', value)
+    print("Osc sent")
