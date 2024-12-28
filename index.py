@@ -3,18 +3,18 @@ import xml.etree.ElementTree as ET
 from pythonosc import udp_client
 
 # Where to send osc
-client = udp_client.SimpleUDPClient('127.0.0.1', 8080) # ip. port
+client = udp_client.SimpleUDPClient('127.0.0.1', 8000) # ip. port
 
 # Variables
 key = '777a716870617374363855535a6567'
-tree_number = '1'
+tree_number = '64'
 url = 'http://openAPI.seoul.go.kr:8088/' + key + '/xml/GeoInfoNurseTreeOldTreeWGS/1/5/' + tree_number
 isAllValue = False # set it True to log all values in variables
 
 # Get xml response
 response = requests.get(url)
 xml_response = response.content
-
+    
 # Parse xml
 root = ET.fromstring(xml_response)
 
@@ -106,10 +106,10 @@ if isAllValue is True:
     for key, value in variables.items():
         # send osc
         client.send_message('/data', value)
-    print("Osc sent")
+    print('Osc sent with all data')
 else:
     for key, value in variables.items():
         if key in selected_data:
             # send osc for selected data
             client.send_message(f'/{key}', value)
-    print("Osc sent")
+    print('Osc sent with selected data')

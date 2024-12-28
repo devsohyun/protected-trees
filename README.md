@@ -1,2 +1,2 @@
-# protected-trees
-Virtual trees created with open data of protected trees from Seoul city.
+# Protected Trees
+Digital Protected Trees with created with open data from Seoul Open Data Plaza.
